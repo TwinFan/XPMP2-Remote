@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25279C84295CE1B6009A1E65 /* libfmod.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 25279C83295CE1B6009A1E65 /* libfmod.dylib */; };
 		254A0B9C2919B99D004CA228 /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254A0B982919B99D004CA228 /* Client.cpp */; };
 		254A0B9D2919B99D004CA228 /* XPMP2-Remote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254A0B992919B99D004CA228 /* XPMP2-Remote.cpp */; };
 		254A0B9E2919B99D004CA228 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254A0B9A2919B99D004CA228 /* Utilities.cpp */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25279C83295CE1B6009A1E65 /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmod.dylib; path = lib/fmod/libfmod.dylib; sourceTree = "<group>"; };
 		252C01F623E6D63D007C231F /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		252C01F923E6D64F007C231F /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		252C01FA23E6D64F007C231F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25279C84295CE1B6009A1E65 /* libfmod.dylib in Frameworks */,
 				25B071F22540D6C400CCDA1D /* CoreFoundation.framework in Frameworks */,
 				254A0BA52919BDA6004CA228 /* XPLM.framework in Frameworks */,
 				254A0BA32919BD93004CA228 /* XPMP2.framework in Frameworks */,
@@ -138,6 +141,7 @@
 		25D86CC6253E285E00424494 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25279C83295CE1B6009A1E65 /* libfmod.dylib */,
 				254A0BA42919BDA6004CA228 /* XPLM.framework */,
 				254A0B8E2919B974004CA228 /* XPMP2.xcodeproj */,
 				25D86CC7253E285E00424494 /* CoreFoundation.framework */,
@@ -293,7 +297,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = "${XPMP2_VER_MAJOR}.${XPMP2_VER_MINOR}";
+				CURRENT_PROJECT_VERSION = "${XPMP2_RC_VER_MAJOR}.${XPMP2_RC_VER_MINOR}.${XPMP2_RC_VER_PATCH}";
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
@@ -320,8 +324,9 @@
 					"XPLM300=1",
 					"XPLM301=1",
 					"XPLM303=1",
-					"XPMP2_VER_MAJOR=${XPMP2_VER_MAJOR}",
-					"XPMP2_VER_MINOR=${XPMP2_VER_MINOR}",
+					"XPMP2_RC_VER_MAJOR=${XPMP2_RC_VER_MAJOR}",
+					"XPMP2_RC_VER_MINOR=${XPMP2_RC_VER_MINOR}",
+					"XPMP2_RC_VER_PATCH=${XPMP2_RC_VER_PATCH}",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -355,9 +360,10 @@
 					"$(XPSDK_ROOT)/CHeaders/XPLM",
 					lib/XPMP2/inc,
 				);
-				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/Release";
-				XPMP2_VER_MAJOR = 2;
-				XPMP2_VER_MINOR = 60;
+				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/11";
+				XPMP2_RC_VER_MAJOR = 3;
+				XPMP2_RC_VER_MINOR = 1;
+				XPMP2_RC_VER_PATCH = 0;
 				XPSDK_ROOT = lib/XPMP2/lib/SDK;
 			};
 			name = Debug;
@@ -402,7 +408,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = "${XPMP2_VER_MAJOR}.${XPMP2_VER_MINOR}";
+				CURRENT_PROJECT_VERSION = "${XPMP2_RC_VER_MAJOR}.${XPMP2_RC_VER_MINOR}.${XPMP2_RC_VER_PATCH}";
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = NO;
@@ -427,8 +433,9 @@
 					"XPLM300=1",
 					"XPLM301=1",
 					"XPLM303=1",
-					"XPMP2_VER_MAJOR=${XPMP2_VER_MAJOR}",
-					"XPMP2_VER_MINOR=${XPMP2_VER_MINOR}",
+					"XPMP2_RC_VER_MAJOR=${XPMP2_RC_VER_MAJOR}",
+					"XPMP2_RC_VER_MINOR=${XPMP2_RC_VER_MINOR}",
+					"XPMP2_RC_VER_PATCH=${XPMP2_RC_VER_PATCH}",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -461,9 +468,10 @@
 					"$(XPSDK_ROOT)/CHeaders/XPLM",
 					lib/XPMP2/inc,
 				);
-				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/Release";
-				XPMP2_VER_MAJOR = 2;
-				XPMP2_VER_MINOR = 60;
+				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/11";
+				XPMP2_RC_VER_MAJOR = 3;
+				XPMP2_RC_VER_MINOR = 1;
+				XPMP2_RC_VER_PATCH = 0;
 				XPSDK_ROOT = lib/XPMP2/lib/SDK;
 			};
 			name = Release;
@@ -481,6 +489,10 @@
 					"$(PROJECT_DIR)/lib/XPMP2/lib/SDK/Libraries/Mac",
 				);
 				GCC_PREFIX_HEADER = "inc/XPMP2-Remote.h";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/fmod",
+				);
 				MACH_O_TYPE = mh_bundle;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -511,6 +523,10 @@
 					"$(PROJECT_DIR)/lib/XPMP2/lib/SDK/Libraries/Mac",
 				);
 				GCC_PREFIX_HEADER = "inc/XPMP2-Remote.h";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/fmod",
+				);
 				MACH_O_TYPE = mh_bundle;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",

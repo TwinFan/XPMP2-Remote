@@ -20,15 +20,16 @@ else()
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Archs to build")
 endif()
 
-project(XPMP2
-        VERSION 2.60
+project(XPMP2RemoteClient
+        VERSION 3.1.0
         DESCRIPTION "XPMP2-Remote client plugin for X-Plane")
 
 # Provide compile macros from the above project version definition
 add_compile_definitions(
-    XPMP2_VERSION="${PROJECT_VERSION}"
-    XPMP2_VER_MAJOR=${PROJECT_VERSION_MAJOR}
-    XPMP2_VER_MINOR=${PROJECT_VERSION_MINOR}
+    XPMP2_RC_VERSION="${PROJECT_VERSION}"
+    XPMP2_RC_VER_MAJOR=${PROJECT_VERSION_MAJOR}
+    XPMP2_RC_VER_MINOR=${PROJECT_VERSION_MINOR}
+    XPMP2_RC_VER_PATCH=${PROJECT_VERSION_PATCH}
 )
 
 message ("== Building: ${PROJECT_NAME} ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH} ==")
@@ -78,12 +79,11 @@ add_compile_definitions(XPLM200=1 XPLM210=1 XPLM300=1 XPLM301=1 XPLM303=1)
 add_compile_definitions(APL=$<BOOL:${APPLE}> IBM=$<BOOL:${WIN32}> LIN=$<AND:$<BOOL:${UNIX}>,$<NOT:$<BOOL:${APPLE}>>>)
 
 # Enable stricter warnings and then disable some we are not interested in.
-# For XPMP2 compile, we don't need to be warned about our self-defined depreciations
 if (MSVC)
-    add_compile_options(/wd4996 /wd4068)
+    add_compile_options(/wd4068)
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 else()
-    add_compile_options(-Wall -Wshadow -Wextra -Wno-deprecated-declarations)
+    add_compile_options(-Wall -Wshadow -Wextra)
     if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 9.0 AND NOT APPLE)
         add_compile_options(-Wno-stringop-truncation)
     endif()
