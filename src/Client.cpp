@@ -94,6 +94,11 @@ void RemoteAC::Update (const XPMP2::RemoteAcDetailTy& _acDetails)
     aiPrio              = _acDetails.aiPrio;
     bOnGrnd             = _acDetails.bOnGrnd;
     
+    // Contrail info
+    contrailNum         = _acDetails.contrailNum;
+    contrailDist_m      = _acDetails.contrailDist_m;
+    contrailLifeTime    = _acDetails.contrailLifeTime;
+    
     // Info texts
 #if defined(__GNUC__) && (__GNUC__ >= 9)
 #pragma GCC diagnostic push
