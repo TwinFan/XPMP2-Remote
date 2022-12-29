@@ -76,6 +76,8 @@ int CBIntPrefsFunc (const char *, [[maybe_unused]] const char * item, int defaul
     if (!strcmp(item, XPMP_CFG_ITM_CLAMPALL))       return 0;                               // Never needed: The defining coordinates are sent to us, don't interpret them here in any way
     if (!strcmp(item, XPMP_CFG_ITM_HANDLE_DUP_ID))  return 1;                               // must be on: if receiving from different plugins we can easily run in duplicate ids, which shall be handled
     if (!strcmp(item, XPMP_CFG_ITM_SUPPORT_REMOTE)) return -1;                              // We don't want this plugin to ever _send_ traffic!
+    if (!strcmp(item, XPMP_CFG_ITM_CONTR_MIN_ALT))  return 0;                               // Deactivate auto-contrails, we use whatever we receive
+    if (!strcmp(item, XPMP_CFG_ITM_CONTR_MAX_ALT))  return 0;                               // Deactivate auto-contrails, we use whatever we receive
     if (!strcmp(item, XPMP_CFG_ITM_ACTIVATE_SOUND)) return 0;                               // We don't want sound ever (and actually build without sound...just in case)
     if (!strcmp(item, XPMP_CFG_ITM_LOGLEVEL))       return (int)rcGlob.mergedS.logLvl;      // taken from sending plugins
     if (!strcmp(item, XPMP_CFG_ITM_MODELMATCHING))  return rcGlob.mergedS.bLogMdlMatch;     // taken from sending plugins
