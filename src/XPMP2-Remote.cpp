@@ -258,6 +258,8 @@ void MenuLabelsCB (void* /*inMenuRef*/, void* inItemRef)
 
 /// ID of our flight loop callback for regular tasks
 XPLMFlightLoopID flId = nullptr;
+/// Flag to perform one-time init in flight loop
+static bool bDoOneTimeInit = false;
 
 /// Regular tasks, called by flight loop
 float FlightLoopCallback(float, float, int, void*)
@@ -265,6 +267,16 @@ float FlightLoopCallback(float, float, int, void*)
     // entry point into plugin...catch exceptions latest here
     try {
         GetMiscNetwTime();              // update rcGlob.now, e.g. for logging from worker threads
+        
+        // --- One Time Init
+        if (bDoOneTimeInit) {
+            bDoOneTimeInit = false;
+            // Activate the listener
+            ClientToggleActive();
+        }
+        
+        // --- Regular Tasks
+        
         // if there aren't any planes yet then the XPMP2 library won't call ClientFlightLoopBegins(), instead we do
         if (XPMPCountPlanes() == 0) {
             try {
@@ -403,8 +415,15 @@ PLUGIN_API int XPluginEnable(void)
     flId = XPLMCreateFlightLoop(&flParams);
     XPLMScheduleFlightLoop(flId, 1.0f, true);
     
-    // Activate the listener
-    ClientToggleActive();
+    // Try already to get TCAS control so we have it before others can snatch it away.
+    // This is not in accordance with what is laid out in "TCAS Override"
+    // https://developer.x-plane.com/article/overriding-tcas-and-providing-traffic-information/#Plugin_coordination
+    // but we serve a good deed here: We can combine several plugins' TCAS needs,
+    // but only if we are in control:
+    ClientTryGetAI();
+
+    // Activate the listener in the first flight loop callback
+    bDoOneTimeInit = true;
     MenuUpdateCheckmarks();
     
     // Success

@@ -21,7 +21,7 @@ else()
 endif()
 
 project(XPMP2RemoteClient
-        VERSION 3.1.0
+        VERSION 3.4.0
         DESCRIPTION "XPMP2-Remote client plugin for X-Plane")
 
 # Provide compile macros from the above project version definition
