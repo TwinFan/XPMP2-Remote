@@ -603,13 +603,9 @@ void ClientToggleActive (int nForce)
 {
     // Need to start?
     if (nForce > 0 ||
-        XPMP2::RemoteGetStatus() == XPMP2::REMOTE_OFF)
+        (nForce == 0 && XPMP2::RemoteGetStatus() == XPMP2::REMOTE_OFF))
     {
-        // Try already to get TCAS control so we have it before others can snatch it away.
-        // This is not in accordance with what is laid out in "TCAS Override"
-        // https://developer.x-plane.com/article/overriding-tcas-and-providing-traffic-information/#Plugin_coordination
-        // but we serve a good deed here: We can combine several plugins' TCAS needs,
-        // but only if we are in control:
+        // Try (potentially again) to get AI control
         ClientTryGetAI();
 
         // Start the listener to receive message
@@ -626,7 +622,7 @@ void ClientToggleActive (int nForce)
     }
     // Need to stop?
     else if (nForce < 0 ||
-             XPMP2::RemoteGetStatus() != XPMP2::REMOTE_OFF)
+             (nForce == 0 && XPMP2::RemoteGetStatus() != XPMP2::REMOTE_OFF))
     {
         // Release the data access lock, just a safety measure so that we don't hinder shutdown in case we f--- up
         try { glockDataMain.unlock(); }
