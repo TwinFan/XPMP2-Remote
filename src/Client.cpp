@@ -386,8 +386,8 @@ void ClientProcSettings (const std::uint32_t from[4],
         const XPMP2::RemoteMsgSettingsTy& otherS = itSender->second.settings;
         if (otherS.logLvl < rcGlob.mergedS.logLvl) rcGlob.mergedS.logLvl = otherS.logLvl;
         if ( otherS.bLogMdlMatch)               rcGlob.mergedS.bLogMdlMatch = true;
-        if ( otherS.bObjReplDataRefs)           rcGlob.mergedS.bLogMdlMatch = true;
-        if ( otherS.bObjReplTextures)           rcGlob.mergedS.bLogMdlMatch = true;
+        if ( otherS.bObjReplDataRefs)           rcGlob.mergedS.bObjReplDataRefs = true;
+        if ( otherS.bObjReplTextures)           rcGlob.mergedS.bObjReplTextures = true;
         if (!otherS.bLabelCutOffAtVisibility)   rcGlob.mergedS.bLabelCutOffAtVisibility = false;
         if ( otherS.bMapEnabled)                rcGlob.mergedS.bMapEnabled = true;
         if ( otherS.bMapLabels)                 rcGlob.mergedS.bMapLabels = true;
