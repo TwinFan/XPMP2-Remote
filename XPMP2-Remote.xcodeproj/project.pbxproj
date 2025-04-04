@@ -361,10 +361,10 @@
 					"$(XPSDK_ROOT)/CHeaders/XPLM",
 					lib/XPMP2/inc,
 				);
-				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/11";
+				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/12";
 				XPMP2_RC_VER_MAJOR = 3;
 				XPMP2_RC_VER_MINOR = 4;
-				XPMP2_RC_VER_PATCH = 0;
+				XPMP2_RC_VER_PATCH = 1;
 				XPSDK_ROOT = lib/XPMP2/lib/SDK;
 			};
 			name = Debug;
@@ -470,10 +470,10 @@
 					"$(XPSDK_ROOT)/CHeaders/XPLM",
 					lib/XPMP2/inc,
 				);
-				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/11";
+				XPLANE11_ROOT = "$(USER_APPS_DIR)/X-Plane/12";
 				XPMP2_RC_VER_MAJOR = 3;
 				XPMP2_RC_VER_MINOR = 4;
-				XPMP2_RC_VER_PATCH = 0;
+				XPMP2_RC_VER_PATCH = 1;
 				XPSDK_ROOT = lib/XPMP2/lib/SDK;
 			};
 			name = Release;
