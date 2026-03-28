@@ -24,7 +24,7 @@ else()
 endif()
 
 project(XPMP2RemoteClient
-        VERSION 3.4.1
+        VERSION 3.4.2
         DESCRIPTION "XPMP2-Remote client plugin for X-Plane")
 
 # Provide compile macros from the above project version definition
@@ -114,13 +114,9 @@ else()
     if(MSVC)
         # Fast code, symbols into separate .pdb file, no global optimization (as it produces huge files)
         add_compile_options(/Zi /O2 /GL-)
-    elseif(APPLE)
-        add_compile_options(-O3 -fPIC)
-    elseif (UNIX OR MINGW)
-        # Use position-independent code and highest optimization level (FPS!).
-        add_compile_options(-O3 -fPIC)
-        # Strip symbols during linking
-        add_link_options(-s)
+    else()
+        # Use position-independent code and highest optimization level plus some minimal debug info for stack traces
+        add_compile_options(-O3 -fPIC -g1)
     endif()
 endif()
 

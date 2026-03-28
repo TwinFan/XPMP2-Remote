@@ -77,9 +77,39 @@
 
     <h1>Release Notes</h1>
     
-    <h2>v3.4.1</h2>
+    <h2>v3.4.2</h2>
 
+    <P>
+    <b>Mandatory Update for X-Plane 12.4.1</b> to prevent X-Plane from stopping.
+    </P>
+    
     <p><b>Update:</b> In case of doubt you can always just copy all files from the archive over the files of your existing installation.</p>
+
+    <p>At least copy the following files, which have changed compared to v3.4.1:</p>
+    <ul>
+        <li><code>lin|mac|win_x64/XPMP2-Remote.xpl</code></li>
+        <li><code>Resources/Doc8643.txt</code></li>
+    </ul>
+
+    <P>Change log:</P>
+
+    <ul>
+        <li>Fixed potential crashes in X-Plane 12.4.1 due to stricter SDK validations.</li>
+        <li>Fixed potential "Traffic plugin error...gave us target with no id" messages by XP 12.4.0.</li>
+        <li>Fixed a memory overrun in networking, which had the potential of
+            triggering crashes anywhere in X-Plane.</li>
+        <li>
+            Different transponder modes are derived and sent to X-Plane for
+            consideration in their improved TCAS displays. Certainly depends on
+            what the master sends.<br>
+            E.g. LiveTraffic sends for smaller aircraft
+            (wake turbulence category L and L/M) "Mode C"; for larger
+            ones "Mode S", and depending on location it further differentiates
+            between "GND", "TA-Only", and "TA/TR" mode.
+        </li>
+    </ul>
+
+    <h2>v3.4.1</h2>
 
     <p>At least copy the following files, which have changed compared to v3.4.0:</p>
     <ul>
